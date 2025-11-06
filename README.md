@@ -1,10 +1,10 @@
-## 🍕 Pizzasite
+## Pizzasite
 
 A full-stack web application that demonstrates secure authentication, dynamic content rendering, and persistent data storage with MongoDB.
 
 ---
 
-## 🚀 Features
+## Features
 
 - **User Authentication** – Secure user registration and login using encrypted passwords  
 - **Dynamic Content** – Server-side rendered views powered by EJS templates  
@@ -13,7 +13,7 @@ A full-stack web application that demonstrates secure authentication, dynamic co
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 | Category   | Technology | Description |
 |-------------|-------------|-------------|
@@ -26,7 +26,7 @@ A full-stack web application that demonstrates secure authentication, dynamic co
 
 ---
 
-## 🔧 Tools & Dependencies
+##  Tools & Dependencies
 
 - **npm** – Package and dependency manager  
 - **bcrypt** – Password hashing for authentication security  

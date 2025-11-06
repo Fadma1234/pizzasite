@@ -34,7 +34,7 @@ A full-stack web application that demonstrates secure authentication, dynamic co
 
 ---
 
-### 📦 Installation & Setup
+### Installation & Setup
 
 1. Clone the repository  
    ```bash

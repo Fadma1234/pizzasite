@@ -1,4 +1,4 @@
-### Pizzasite 
+### Recipe Hub
 
 
 A full-stack web application that demonstrates secure authentication, dynamic content rendering, and persistent data storage with MongoDB.

@@ -1,50 +1,72 @@
 <!doctype html>
 <html>
-<head>
-    <title>pizza Site</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="container">
 
+<head>
+  <title>Recipe Share Site</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     <div class="page-header text-center">
-        <h1></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+      <h1>Recipe Hub</h1>
     </div>
 
-    
+    <div class="row">
 
-       
-        <div class="col-sm-6">
-          <h3>Orders</h3>
-          <ul class="messages">
-          <% for(var i=0; i<messages.length; i++) {%>
-            <li class="message">
-              <span><%= messages[i].name %></span>
-              <span><%= messages[i].msg %></span>
-              <span><%= messages[i].thumbUp %></span>
-              <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
-              <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
-              <span><i class="fa fa-trash" aria-hidden="true"></i></span>
-            </li>
-          <% } %>
-          </ul>
+      <div class="col-sm-6">
+        <h3>Shared Recipes</h3>
+        <ul class="recipes-list">
+          <% if (typeof recipes !=='undefined' && recipes.length> 0) { %>
+            <% for(var i=0; i<recipes.length; i++) {%>
+              <li class="recipe-item">
+                <h4>
+                  <%= recipes[i].type %>
+                </h4>
+                <img src="<%= recipes[i].image %>" alt="<%= recipes[i].type %>" style="max-width: 100%; height: auto;">
+                <p><strong>Ingredients:</strong>
+                  <%= recipes[i].ingredients %>
+                </p>
+                <p><strong>Steps:</strong>
+                  <%= recipes[i].steps %>
+                </p>
 
-          <h2>Add order</h2>
+                <button class="btn btn-sm btn-info edit-recipe" data-id="<%= recipes[i]._id %>">Edit</button>
+                <button class="btn btn-sm btn-danger delete-recipe" data-id="<%= recipes[i]._id %>">Delete</button>
+
+              </li>
+              <% } %>
+                <% } else { %>
+                  <p>No recipes shared yet.</p>
+                  <% } %>
+        </ul>
+
+        <h2>Share a Recipe</h2>
         <% if (user.local.email) { %>
-          <form action="/messages" method="POST">
-            <input type="text" placeholder="order" name="msg">
-            <button type="submit">Submit</button>
+          <form action="/recipes" method="POST">
+            <input type="text" placeholder="Recipe Title" name="title" required class="form-control mb-2">
+            <input type="text" placeholder="Image URL Link" name="imageUrl" required class="form-control mb-2">
+            <textarea placeholder="Ingredients (comma separated)" name="ingredients" required
+              class="form-control mb-2"></textarea>
+            <textarea placeholder="Steps" name="steps" required class="form-control mb-2"></textarea>
+            <button type="submit" class="btn btn-primary">Submit Recipe</button>
           </form>
-        </div>
-        <% } %>
+          <% } %>
+      </div>
 
-</div>
- 
+      <div class="col-sm-6">
+      </div>
 
-<script src="main.js"></script>
+    </div>
+  </div>
+
+
+  <script src="main.js"></script>
 
 </body>
+
 </html>
